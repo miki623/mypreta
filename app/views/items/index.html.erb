@@ -1,0 +1,94 @@
+<%# ページTOP %>
+<header>
+  <div class="top-page-header">
+    <div class="header-left">
+      <div class="app-name">
+        <a href="/" class= "top-link">
+        <h1 class="title">MyPreta</h1>
+        </a>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="user-name">
+      </div>
+    
+    <ul class='user-lists-right'>
+      <% if seller_signed_in? %>
+      <p class="list-tag">出品者用アカウント</p>
+      <li><%= link_to current_seller.nickname, "#", class: "user-tag" %></li>
+      <li><%= link_to 'ログアウト', destroy_seller_session_path, method: :delete, class: "user-tag" %></li> 
+      <% elsif  buyer_signed_in?%>
+      <p class="list-tag">購入者用アカウント</p>
+      <li><%= link_to current_buyer.nickname, "#", class: "user-tag" %></li>
+      <li><%= link_to 'ログアウト', destroy_buyer_session_path, method: :delete, class: "user-tag" %></li> 
+      <% else %>
+      <li><%= link_to '出品者としてログイン', new_seller_session_path, class: "user-tag" %></li>
+      <li><%= link_to '出品者として新規登録', new_seller_registration_path, class: "user-tag" %></li>
+      <li><%= link_to '購入者としてログイン', new_buyer_session_path, class: "user-tag" %></li>
+      <li><%= link_to '購入者として新規登録', new_buyer_registration_path, class: "user-tag" %></li>
+      <% end %>
+    </ul>
+
+
+    </div>
+
+  </div>
+</header>
+<%# ページTOP %>
+<div class='nav'>
+  <div class='lists-left'>
+  検索機能
+  </div>
+    <%= link_to new_item_path, class:"purchase-btn-text" do %>
+      <div class='purchase-btn'>
+        <p>出品する</p>
+      </div>
+    <%end%>
+</div>
+<div class="slide-wrapper">
+  <div class="slide-content">
+  人気商品のスライド
+  </div>
+</div>
+
+<div class="lessons">
+  <div class="lesson">
+    <%= link_to category_path(@category1) do %>
+    <div class="lesson-icon">
+      <%= image_tag "category1-icon.png", class: "lesson-icon-list" %>
+      <p>オーダーメイド</p>
+    </div>
+    <%end%>
+    <p class="txt-contents">自分だけのデザインの服をオーダーできます。<br>世界にひとつだけの個性あふれるデザインを実現することが可能です。</p>
+  </div>
+  <div class="lesson">
+  <%= link_to category_path(@category2) do %>
+    <div class="lesson-icon">
+      <%= image_tag "category2-icon.png", class: "lesson-icon-list" %>
+      <p>コスプレ</p>
+    </div>
+  <%end%>
+    <p class="txt-contents">自分のサイズにぴったりのコスプレ衣装が手に入ります。<br>細かい箇所までオーダー可能で、自分だけの可愛いが実現できます。</p>
+  </div>
+  <div class="lesson">
+    <%= link_to category_path(@category3) do %>
+    <div class="lesson-icon">
+      <%= image_tag "category3-icon.png", class: "lesson-icon-list"%>
+      <p>ペット服</p>
+    </div>
+    <%end%>
+    <p class="txt-contents">大切な家族に最高に可愛い洋服をプレゼントできます。<br>帽子・フード付きなど自由自在。</p>
+  </div>
+  <div class="lesson">
+      <%= link_to category_path(@category4) do %>
+    <div class="lesson-icon">
+      <%=image_tag "category4-icon.png", class: "lesson-icon-list" %>
+      <p>小物</p>
+    </div>
+    <%end%>
+    <p class="txt-contents">普段身に着けるアイテムにこだわりを。<br>周りと差をつけられる素敵なアイテムがオーダー可能です。</p>
+  </div>
+</div>
+
+<footer>
+
