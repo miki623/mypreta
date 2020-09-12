@@ -1,0 +1,104 @@
+.top-page-header {
+  width: 100vw;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 30px;
+}
+
+.top-link {
+  text-decoration: none;
+  font-size: 30px;
+  color: black
+}
+
+.user-lists-right {
+  list-style: none;
+}
+
+.list-tag {
+  font-size: 15px;
+  padding: 0.2em 0.5em;/*上下 左右の余白*/
+  color: #494949;/*文字色*/
+  background: transparent;/*背景透明に*/
+  border-left: solid 5px #7db4e6;/*左線*/
+}
+
+.user-tag {
+  text-decoration: none;
+  margin-left: 30px;
+  color: black;
+  padding: 2px;
+}
+
+.title {
+  position: relative;
+  font-size: 50px;
+  color: #6eb0f9;
+  line-height: 1.4;
+  -webkit-box-reflect: below -10px -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0) 10%,rgba(0, 0, 0, 0.6));
+}
+
+.nav {
+  height: 100px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
+}
+
+.purchase-btn-text  {
+  font-size: 25px;
+  text-decoration: none;
+  background: #b0dcfa; /*背景色*/
+  padding: 0.5em;/*文字周りの余白*/
+  color: white;/*文字を白に*/
+  border-radius: 0.5em;/*角の丸み*/
+  height: 50px;
+}
+
+.purchase-btn {
+
+}
+
+.slide-content {
+  height: 300px;
+}
+
+.lesson {
+  float: left;
+  width: 25%;
+  margin-top: 50px;
+}
+
+.lesson-icon {
+  position: relative;
+}
+
+.lesson-icon p {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center; 
+  color: black;
+  font-size: 15px;
+}
+
+.lesson-icon-list {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+}
+
+.txt-contents {
+  width: 80%;
+  display: inline-block;
+  margin-top: 30px;
+  font-size: 12px;
+  color: #7e7b80;
+}
+
+
