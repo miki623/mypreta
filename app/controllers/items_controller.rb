@@ -47,6 +47,24 @@ class ItemsController < ApplicationController
 
   end
 
+  def confirmation
+    @item = Item.find(params[:id])
+    @seller = @item.seller
+    @p = @item.price.to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @seller = @item.seller
+    if @item.seller.id == current_seller.id
+      @item.destroy
+      redirect_to seller_path(@seller)
+    else
+      render :show
+    end
+
+  end
+
   private
 
   def item_params

@@ -31,10 +31,12 @@
 .item-info-content {
   margin: 30px;
   width: 70vw;
+  border: solid 2px rgb(196, 196, 196);
+  height: 200px;
 }
 
 .footer-link {
-  margin: 25px 0px;
+  margin: 25px 50px;
   display: flex;
   align-items: center;
   flex-direction: column;

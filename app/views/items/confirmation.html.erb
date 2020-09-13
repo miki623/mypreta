@@ -1,5 +1,11 @@
 <div class="item-show">
-  <div class="item-box">
+  <div class="item-confirmation">
+    <div class="item-confirmation-content">
+      <h1 class="confirmation-text">本当に削除しますか？</h1>
+      <p>※削除されたデータは復元できません</p>
+      <%= link_to '削除', item_path(@item), method: :delete , class:'item-confirmation-destroy' %>
+
+    </div>
     <h2 class="name">
       <%= @item.overview %>
     </h2>
@@ -14,13 +20,6 @@
         (税込) 送料込み
       </span>
 
-    <% if seller_signed_in? && (@item.seller_id == current_seller.id) %>
-      <%= link_to '商品の編集', edit_item_path(@item), method: :get, class: "item-red-btn" %>
-      <p class='or-text'>or</p>
-      <%= link_to '削除', confirmation_item_path(@item) , class:'item-destroy' %>
-    <% elsif  %>
-      <%= link_to '購入画面に進む', "#" ,class:"item-red-btn"%>
-    <% end %>
 
 
       <div class="item-info-wrapper">
