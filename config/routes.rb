@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   devise_for :sellers
   resources :items
   resources :categories, only:[:show]
+  resources :sellers, only:[:show]
+  
 end

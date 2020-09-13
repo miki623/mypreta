@@ -1,6 +1,7 @@
 class CreateItems < ActiveRecord::Migration[6.0]
   def change
     create_table :items do |t|
+      t.references :seller,                null: false,       foreign_key: true
       t.string  :overview,                 null: false
       t.text    :info,                     null: false
       t.integer :price,                    null: false

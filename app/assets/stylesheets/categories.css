@@ -1,7 +1,12 @@
 .item-contents>.category-title {
-  font-size: 7vh;
+  font-size: 5vh;
   line-height: 1.4;
   font-weight: bold;
+  color: #000000;/*文字色*/
+  padding: 0.2em 0;/*上下の余白*/
+  border-top: solid 3px #a85790;/*上線*/
+  border-bottom: solid 3px #a85790;/*下線*/
+  margin-bottom: 50px;
 }
 
 .item-contents {
@@ -31,6 +36,10 @@
   width: 37vh;
   padding: 1vw;
   background-color: #FFF;
+}
+
+.list>a {
+  text-decoration: none;
 }
 
 
@@ -73,5 +82,23 @@
   font-size: 1.5vh;
   display: flex;
   justify-content: space-between;
+}
+
+.item-price>span {
+  font-size: 13px;
+}
+
+.item-overview {
+  font-size: 15px;
+  color: black;
+  font-weight: bold;
+}
+
+.item-link {
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: rgb(71, 71, 71);
+  margin-top: 50px;
 }
 

@@ -1,0 +1,32 @@
+<div class="item-show">
+  <div class="item-box">
+    <h2 class="name">
+      <%= @item.overview %>
+    </h2>
+    <div class='item-img-content'>
+      <%= image_tag @item.image ,class:"item-box-img" %>
+    </div>
+    <div class="item-price-box">
+      <span class="item-price">
+        ¥<%= @p %>
+      </span>
+      <span class="item-postage">
+        (税込) 送料込み
+      </span>
+
+      <div class="item-info-wrapper">
+        <div class="item-info-content">
+          <%= @item.info %>
+        </div>
+        <div class="fotter-link">
+        <%= link_to "TOPページへ戻る", root_path, class: "footer-link-content" %>
+        </div>
+        <div class="fotter-link">
+        <%= link_to "出品者のページ", "#", class: "footer-link-content" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

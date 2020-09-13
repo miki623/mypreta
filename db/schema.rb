@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2020_09_11_183017) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "seller_id", null: false
     t.string "overview", null: false
     t.text "info", null: false
     t.integer "price", null: false
@@ -61,6 +62,7 @@ ActiveRecord::Schema.define(version: 2020_09_11_183017) do
     t.integer "shipping_area_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
   create_table "sellers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -85,4 +87,5 @@ ActiveRecord::Schema.define(version: 2020_09_11_183017) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "items", "sellers"
 end

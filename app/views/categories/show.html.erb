@@ -8,6 +8,9 @@
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
         </div>
+        <div class="item-overview">
+          <%= item.overview %>
+        </div>
         <div class='item-info'>
           <div class='item-price'>
             <span><%= item.price %>円<br>(税込み)</span>
@@ -17,6 +20,7 @@
       </li>
     <% end %>
   </ul>
+  <%= link_to "トップページに戻る", root_path, class:"item-link" %>
 </div>
 <%# //商品一覧 %>
 </div>
