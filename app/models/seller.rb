@@ -4,6 +4,8 @@ class Seller < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :items
+
   VALID_NAME_REGIX = /\A[ぁ-んァ-ン一-龥]/
   VALID_KANA_REGIX = /\A[ァ-ヶー－]+\z/
   VALID_PASS_REGIX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
