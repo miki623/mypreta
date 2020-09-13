@@ -6,7 +6,6 @@ class Item < ApplicationRecord
   has_one_attached :image, dependent: :destroy
   belongs_to_active_hash :category
   belongs_to_active_hash :delivery_fee
-  belongs_to_active_hash :scheduled_delivery
   belongs_to_active_hash :shipping_area
 
   with_options presence: true do

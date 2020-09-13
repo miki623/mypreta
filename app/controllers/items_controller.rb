@@ -26,9 +26,26 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @seller = @item.seller
     @p = @item.price.to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse
   end
 
+  def edit
+    @item = Item.find(params[:id])
+    if @item.seller.id != current_seller.id
+      redirect_to :show
+    end
+
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to item_path(@item)
+    else
+      render :edit
+    end
+
+  end
 
   private
 

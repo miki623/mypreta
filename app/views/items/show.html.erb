@@ -14,6 +14,15 @@
         (税込) 送料込み
       </span>
 
+    <% if seller_signed_in? && (@item.seller_id == current_seller.id) %>
+      <%= link_to '商品の編集', edit_item_path(@item), method: :get, class: "item-red-btn" %>
+      <p class='or-text'>or</p>
+      <%= link_to '削除', item_path(@item) , method: :delete, class:'item-destroy' %>
+    <% elsif  %>
+      <%= link_to '購入画面に進む', "#" ,class:"item-red-btn"%>
+    <% end %>
+
+
       <div class="item-info-wrapper">
         <div class="item-info-content">
           <%= @item.info %>
@@ -22,7 +31,7 @@
         <%= link_to "TOPページへ戻る", root_path, class: "footer-link-content" %>
         </div>
         <div class="fotter-link">
-        <%= link_to "出品者のページ", "#", class: "footer-link-content" %>
+        <%= link_to "出品者のページ", seller_path(@seller), class: "footer-link-content" %>
         </div>
       </div>
     </div>
