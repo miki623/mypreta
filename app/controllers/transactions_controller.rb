@@ -3,8 +3,11 @@ class TransactionsController < ApplicationController
   before_action :set_item, only:[:index, :create, :pay_item]
 
   def index
-    @transaction = DealTransaction.new
-
+    if buyer_signed_in?
+      @transaction = DealTransaction.new
+    else
+      redirect_to new_buyer_registration_path
+    end
   end
 
   def create

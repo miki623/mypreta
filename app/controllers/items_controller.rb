@@ -8,10 +8,21 @@ class ItemsController < ApplicationController
     @category2 = Category.find(2)
     @category3 = Category.find(3)
     @category4 = Category.find(4)
+
+    if seller_signed_in?
+      @seller = current_seller
+    elsif buyer_signed_in?
+      @buyer = current_buyer
+    end
+
   end
 
   def new
-    @item = Item.new
+    if seller_signed_in?
+      @item = Item.new
+    else
+      redirect_to new_seller_registration_path
+    end
   end
 
   def create

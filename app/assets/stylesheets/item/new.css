@@ -122,7 +122,6 @@
 .sell-price {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
 }
 
 .price-content {

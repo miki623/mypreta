@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   end
   resources :categories, only:[:show]
   resources :sellers, only:[:show]
+  resources :buyers, only:[:show]
   
 end

@@ -1,5 +1,5 @@
 .item-show {
-  width: 1024px;
+  width: 100vw;
 }
 
 .seller-header-name {
@@ -73,3 +73,4 @@
 .item-info-wrapper {
   padding: 30px;
 }
+
