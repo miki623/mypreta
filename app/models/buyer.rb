@@ -4,6 +4,8 @@ class Buyer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :deals
+  has_many :items, through: :deals
 
   VALID_NAME_REGIX = /\A[ぁ-んァ-ン一-龥]/
   VALID_KANA_REGIX = /\A[ァ-ヶー－]+\z/
