@@ -9,25 +9,25 @@
       </div>
     </div>
     <div class="header-right">
-      <div class="user-name">
-      </div>
     
-    <ul class='user-lists-right'>
-      <% if seller_signed_in? %>
-      <p class="list-tag">出品者用アカウント</p>
-      <li><%= link_to current_seller.nickname, "#", class: "user-tag" %></li>
-      <li><%= link_to 'ログアウト', destroy_seller_session_path, method: :delete, class: "user-tag" %></li> 
-      <% elsif  buyer_signed_in?%>
-      <p class="list-tag">購入者用アカウント</p>
-      <li><%= link_to current_buyer.nickname, "#", class: "user-tag" %></li>
-      <li><%= link_to 'ログアウト', destroy_buyer_session_path, method: :delete, class: "user-tag" %></li> 
-      <% else %>
-      <li><%= link_to '出品者としてログイン', new_seller_session_path, class: "user-tag" %></li>
-      <li><%= link_to '出品者として新規登録', new_seller_registration_path, class: "user-tag" %></li>
-      <li><%= link_to '購入者としてログイン', new_buyer_session_path, class: "user-tag" %></li>
-      <li><%= link_to '購入者として新規登録', new_buyer_registration_path, class: "user-tag" %></li>
-      <% end %>
-    </ul>
+      <ul class='user-lists-right'>
+        <% if seller_signed_in? %>
+          <p class="list-tag">出品者用アカウント</p>
+          <li><%= link_to current_seller.nickname, "#", class: "user-tag" %></li>
+          <li><%= link_to 'ログアウト', destroy_seller_session_path, method: :delete, class: "user-tag" %></li> 
+          <li><%= link_to 'マイページ', seller_path(@seller), class: "user-tag" %></li>
+        <% elsif  buyer_signed_in?%>
+          <p class="list-tag">購入者用アカウント</p>
+          <li><%= link_to current_buyer.nickname, "#", class: "user-tag" %></li>
+          <li><%= link_to 'ログアウト', destroy_buyer_session_path, method: :delete, class: "user-tag" %></li> 
+          <li><%= link_to 'マイページ', buyer_path(@buyer), class: "user-tag" %></li>
+        <% else %>
+          <li><%= link_to '出品者としてログイン', new_seller_session_path, class: "user-tag" %></li>
+          <li><%= link_to '出品者として新規登録', new_seller_registration_path, class: "user-tag" %></li>
+          <li><%= link_to '購入者としてログイン', new_buyer_session_path, class: "user-tag" %></li>
+          <li><%= link_to '購入者として新規登録', new_buyer_registration_path, class: "user-tag" %></li>
+        <% end %>
+      </ul>
 
 
     </div>
