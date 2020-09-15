@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     member do
       get 'confirmation'
     end
+    resources :transactions, only:[:index, :create]
   end
   resources :categories, only:[:show]
   resources :sellers, only:[:show]
