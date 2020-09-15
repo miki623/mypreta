@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_11_183017) do
+ActiveRecord::Schema.define(version: 2020_09_14_142027) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +52,15 @@ ActiveRecord::Schema.define(version: 2020_09_11_183017) do
     t.index ["reset_password_token"], name: "index_buyers_on_reset_password_token", unique: true
   end
 
+  create_table "deals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "buyer_id"
+    t.bigint "item_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["buyer_id"], name: "index_deals_on_buyer_id"
+    t.index ["item_id"], name: "index_deals_on_item_id"
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "seller_id", null: false
     t.string "overview", null: false
@@ -86,6 +95,22 @@ ActiveRecord::Schema.define(version: 2020_09_11_183017) do
     t.index ["reset_password_token"], name: "index_sellers_on_reset_password_token", unique: true
   end
 
+  create_table "transactions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "deal_id"
+    t.string "postal_code", null: false
+    t.integer "shipping_area_id", null: false
+    t.string "city", null: false
+    t.string "house_number", null: false
+    t.string "building_name"
+    t.string "phone_number", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["deal_id"], name: "index_transactions_on_deal_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "deals", "buyers"
+  add_foreign_key "deals", "items"
   add_foreign_key "items", "sellers"
+  add_foreign_key "transactions", "deals"
 end
