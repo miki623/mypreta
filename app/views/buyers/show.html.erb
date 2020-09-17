@@ -13,6 +13,7 @@
       <% @deals.each do |deal| %>
         <li class='seller-list'>
           <div class="seller-item">
+          <%= link_to "出品者とチャット", item_deal_path(deal.item_id,deal) %>
             <div class='seller-item-image'>
               <%= image_tag deal.item.image, class: "seller-item-img" %>
             </div>
