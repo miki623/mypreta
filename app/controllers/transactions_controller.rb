@@ -15,10 +15,18 @@ class TransactionsController < ApplicationController
     if @transaction.valid?
       pay_item
       @transaction.save
-      redirect_to root_path
+      # redirect_to item_transaction_path(@item, @transaction)
+      @buyer = current_buyer
+      redirect_to buyer_path(@buyer)
+
     else
       render :index
     end
+  end
+
+  def show
+    @item = Item.find(params[:id])
+    @transaction = DealTransaction.find(params[:id])
   end
 
   private
