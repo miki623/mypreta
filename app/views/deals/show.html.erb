@@ -1,0 +1,21 @@
+<div class="container">
+    <% if current_seller || current_buyer %>
+      <%= form_with model: @comment, url:"/items/#{@item.id}/deals/#{@deal.id}/comments",local: true do |f| %>
+        <%= f.file_field :image, id:"item-image" %>
+        <%= f.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <%= f.submit "SEND" %>
+      <% end %>
+    <% end %>
+</div>
+
+<div class="comments">
+      <h4>＜コメント一覧＞</h4>
+      <% if @comments %>
+        <% @comments.each do |comment| %>
+          <p>
+            <%= comment.text %>
+          <%= image_tag comment.image, class: "comment-image" if comment.image.attached? %>
+          </p>
+        <% end %>
+      <% end %>
+</div>
