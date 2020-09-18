@@ -1,7 +1,7 @@
 class DealTransaction
 
   include ActiveModel::Model
-  attr_accessor :buyer_id, :item_id, :postal_code, :shipping_area_id, :city, :house_number, :building_name, :phone_number, :token
+  attr_accessor :buyer_id, :seller_id, :item_id, :postal_code, :shipping_area_id, :city, :house_number, :building_name, :phone_number, :token
 
   VALID_POSTAL_REGIX = /\A\d{3}[-]\d{4}\z/
   VALID_PHONE_REGIX = /\A\d{,11}\z/
@@ -17,7 +17,7 @@ class DealTransaction
   end
 
   def save
-    deal = Deal.create(buyer_id: buyer_id, item_id: item_id)
+    deal = Deal.create(buyer_id: buyer_id,seller_id: seller_id, item_id: item_id)
     
     Transaction.create(deal_id: deal.id, postal_code: postal_code, shipping_area_id: shipping_area_id, city: city, house_number: house_number,
     building_name: building_name, phone_number: phone_number)
