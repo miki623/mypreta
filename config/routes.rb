@@ -9,10 +9,14 @@ Rails.application.routes.draw do
     resources :deals, only:[:show] do
       resources :comments, only:[:create]
     end
-    resources :transactions, only:[:index, :create, :show]
+    resources :transactions, only:[:index, :create]
   end
   resources :categories, only:[:show]
-  resources :sellers, only:[:show]
+  resources :sellers, only:[:show] do
+    member do
+      get 'history'
+    end
+  end
   resources :buyers, only:[:show]
   
 end
