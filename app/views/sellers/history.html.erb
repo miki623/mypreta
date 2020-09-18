@@ -1,45 +1,44 @@
 <div class="item-show">
   <div class="seller-header">
     <div class="seller-header-name">
-      <%= @seller.nickname %>
+      <%= @seller.nickname %>さんのページ
     </div>
     <div class="seller-header-text">
-      出品サービス一覧
+      購入履歴一覧
     </div>
-    <%= link_to "購入された商品の一覧へ", history_seller_path(@seller) %>
   </div>
 
   <div class="seller-item-box">
     <ul class='item-lists'>
-      <% @items.each do |item| %>
+      <% @deals.each do |deal| %>
         <li class='seller-list'>
-          <%= link_to item_path(item) do %>
           <div class="seller-item">
-            <div class="seller-item-left">
+          <%= link_to "購入者とチャット", item_deal_path(deal.item_id,deal) %>
+            <div class='seller-item-image'>
+              <%= image_tag deal.item.image, class: "seller-item-img" %>
+            </div>
+            <div class="seller-item-right">
               <div class="seller-item-overview">
-                <%= item.overview %>
+                <%= deal.item.overview %>
               </div>
               <div class="seller-item-info">
-                <%= item.info %>
+                <%= deal.item.info %>
               </div>
               <div class="seller-item-bottom">
                 <div class=seller-item-category>
-                  <%= item.category.name %>
+                  <%= deal.item.category.name %>
                 </div>
                 <div class="seller-item-price">
                   <div class="seller-item-bottom-price">
-                  ¥<%= item.price %>
+                    ¥<%= deal.item.price %>
                   </div>
-                  <div class="seller-item-deliveryfee"></div>
-                  <%= item.delivery_fee.name %>
+                  <div class="seller-item-deliveryfee">
+                    <%= deal.item.delivery_fee.name %>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class='seller-item-image'>
-              <%= image_tag item.image, class: "seller-item-img" %>
-            </div>
           </div>
-          <% end %>
         </li>
       <% end %>
     </ul>
@@ -49,8 +48,6 @@
           <%= link_to "TOPページへ戻る", root_path, class: "footer-link-content" %>
         </div>
       </div>
-
-
 </div>
 
 
