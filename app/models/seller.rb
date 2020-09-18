@@ -5,6 +5,7 @@ class Seller < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items
+  has_many :deals
 
   VALID_NAME_REGIX = /\A[ぁ-んァ-ン一-龥]/
   VALID_KANA_REGIX = /\A[ァ-ヶー－]+\z/
