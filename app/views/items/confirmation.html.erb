@@ -1,14 +1,19 @@
-<div class="item-show">
+<% breadcrumb :item_confirmation %>
+
+<div class="item-confirmation-wrapper">
   <div class="item-confirmation">
     <div class="item-confirmation-content">
       <h1 class="confirmation-text">本当に削除しますか？</h1>
       <p>※削除されたデータは復元できません</p>
       <%= link_to '削除', item_path(@item), method: :delete , class:'item-confirmation-destroy' %>
-
+      </div>
+    <div class="confirmation-inner">
+      <p>削除する商品情報</p>
+      <div class="name">
+        <p>＜商品概要＞</p>
+        <h4><%= @item.overview %></h4>
+      </div>
     </div>
-    <h2 class="name">
-      <%= @item.overview %>
-    </h2>
     <div class='item-img-content'>
       <%= image_tag @item.image ,class:"item-box-img" %>
     </div>
@@ -27,9 +32,9 @@
           <%= @item.info %>
         </div>
         <div class="fotter-link">
-        <%= link_to "TOPページへ戻る", root_path, class: "item-link"" %>
+        <%= link_to "TOPページへ戻る", root_path, class: "item-link" %>
         </div>
-        <div class="fotter-link">
+        <div class="footer-link">
         <%= link_to "出品者のページ", seller_path(@seller), class: "footer-link-content" %>
         </div>
       </div>
