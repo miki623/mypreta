@@ -1,6 +1,8 @@
 class TransactionsController < ApplicationController
 
   before_action :set_item, only:[:index, :create, :pay_item, :edit, :update]
+  before_action :set_user
+
 
   def index
     if buyer_signed_in?
@@ -42,5 +44,14 @@ class TransactionsController < ApplicationController
       currency: 'jpy'
     )
   end
+
+  def set_user
+    if seller_signed_in?
+      @seller = current_seller
+    elsif buyer_signed_in?
+      @buyer = current_buyer
+    end
+  end
+
 
 end
