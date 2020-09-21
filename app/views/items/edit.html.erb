@@ -1,3 +1,5 @@
+<%= render partial: "items/header" %>
+
 <div class="items-sell-contents">
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
@@ -19,6 +21,10 @@
       </div>
     </div>
     <%# /出品画像 %>
+
+    <div id="image-list">
+    <%= image_tag @item.image, class: "item-current-img", id: "item-current-image" %> 
+    </div>
 
 
     <%# 商品名と商品説明 %>

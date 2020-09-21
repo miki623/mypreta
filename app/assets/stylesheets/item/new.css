@@ -122,10 +122,11 @@
 .sell-price {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .price-content {
-  width: 300px;
+  width:300px;
   border-bottom: 1px solid #ccc;
   padding: 10px;
   display: flex;
@@ -174,6 +175,22 @@
   height: 50px;
   font-size: 14px;
   margin-bottom: 4vh;
+}
+
+.item-image-preview {
+  width: 250px;
+  height: 250px;
+  min-height: 200px;
+  background-color: rgb(205, 202, 202);
+  object-fit: contain;
+}
+
+.item-current-img {
+  width: 250px;
+  height: 250px;
+  min-height: 200px;
+  background-color: rgb(205, 202, 202);
+  object-fit: contain;
 }
 
 

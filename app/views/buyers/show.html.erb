@@ -1,7 +1,13 @@
+<%= render partial: "items/header" %>
+
+
 <div class="item-show">
   <div class="seller-header">
     <div class="seller-header-name">
       <%= @buyer.nickname %>さんのページ
+      <% if @buyer == current_buyer %>
+      <p><%= link_to "#{@buyer.nickname}さんのプロフィール修正", edit_buyer_registration_path(@buyer), class:"seller-header-edit" %></p>
+      <% end %>
     </div>
     <div class="seller-header-text">
       購入履歴一覧
@@ -12,32 +18,35 @@
     <ul class='item-lists'>
       <% @deals.each do |deal| %>
         <li class='seller-list'>
+          <p class="seller-item-time">購入日時：<%= deal.created_at.to_s(:datetime_jp) %></p>
+          <%= link_to "出品者とチャット", item_deal_path(deal.item_id,deal),class:"seller-item-link" %>
           <div class="seller-item">
-          <%= link_to "出品者とチャット", item_deal_path(deal.item_id,deal) %>
-            <div class='seller-item-image'>
-              <%= image_tag deal.item.image, class: "seller-item-img" %>
-            </div>
-            <div class="seller-item-right">
-              <div class="seller-item-overview">
-                <%= deal.item.overview %>
-              </div>
-              <div class="seller-item-info">
-                <%= deal.item.info %>
-              </div>
               <div class="seller-item-bottom">
-                <div class=seller-item-category>
-                  <%= deal.item.category.name %>
+                <div class='seller-item-image'>
+                  <%= image_tag deal.item.image, class: "seller-item-img" %>
                 </div>
-                <div class="seller-item-price">
-                  <div class="seller-item-bottom-price">
-                    ¥<%= deal.item.price %>
+                <div class="seller-item-right">
+                  <div class="seller-item-overview">
+                    <%= deal.item.overview %>
                   </div>
-                  <div class="seller-item-deliveryfee">
-                    <%= deal.item.delivery_fee.name %>
+                  <div class="seller-item-info">
+                    <%= deal.item.info %>
+                  </div>
+                  <div class="seller-item-bottom">
+                    <div class=seller-item-category>
+                      <%= deal.item.category.name %>
+                    </div>
+                    <div class="seller-item-price">
+                      <div class="seller-item-bottom-price">
+                        ¥<%= deal.item.price %>
+                      </div>
+                      <div class="seller-item-deliveryfee">
+                        <%= deal.item.delivery_fee.name %>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
           </div>
         </li>
       <% end %>

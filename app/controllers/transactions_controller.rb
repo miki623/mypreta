@@ -1,6 +1,6 @@
 class TransactionsController < ApplicationController
 
-  before_action :set_item, only:[:index, :create, :pay_item]
+  before_action :set_item, only:[:index, :create, :pay_item, :edit, :update]
 
   def index
     if buyer_signed_in?
@@ -15,7 +15,6 @@ class TransactionsController < ApplicationController
     if @transaction.valid?
       pay_item
       @transaction.save
-      # redirect_to item_transaction_path(@item, @transaction)
       @buyer = current_buyer
       redirect_to buyer_path(@buyer)
 
@@ -24,10 +23,6 @@ class TransactionsController < ApplicationController
     end
   end
 
-  def show
-    @item = Item.find(params[:id])
-    @transaction = DealTransaction.find(params[:id])
-  end
 
   private
 

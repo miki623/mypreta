@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
 
   
   def create
-    Comment.create(comment_params)
+    Comment.create!(comment_params)
     redirect_to item_deal_path(@item, @deal)
   end
 
@@ -20,7 +20,11 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:text, :image).merge(deal_id: @deal.id, buyer_id: @deal.buyer_id, seller_id: @item.seller_id )
+    if current_buyer
+      params.require(:comment).permit(:text, :image).merge(deal_id: @deal.id, buyer_id: current_buyer.id)
+    elsif current_seller
+      params.require(:comment).permit(:text, :image).merge(deal_id: @deal.id, seller_id: current_seller.id)
+    end
   end
 
 end

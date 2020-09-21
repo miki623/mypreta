@@ -1,0 +1,56 @@
+<%# ページTOP %>
+<header>
+  <div class="top-page-header">
+    <div class="header-left">
+      <div class="app-name">
+        <a href="/" class= "top-link">
+        <h1 class="title">MyPreta</h1>
+        </a>
+      </div>
+    </div>
+    <div class="header-right">
+    
+        <% if seller_signed_in? %>
+          <p class="list-tag">出品者用アカウント</p>
+            <div class="user_nav grid-6">
+              <span><%= link_to current_seller.nickname, edit_seller_registration_path(@current_seller), class: "user-tag" %>
+                <ul class="user__info">
+                  <li><%= link_to 'ログアウト', destroy_seller_session_path, method: :delete, class: "user-tag" %></li> 
+                  <li><%= link_to 'マイページ', seller_path(@current_seller), class: "user-tag" %></li>
+                </ul>
+              </span>
+            </div>
+        <% elsif  buyer_signed_in?%>
+          <p class="list-tag">購入者用アカウント</p>
+            <div class="user_nav grid-6">
+              <span><%= link_to current_buyer.nickname, edit_buyer_registration_path(@current_buyer), class: "user-tag" %>
+                <ul class="user__info">
+                  <li><%= link_to 'ログアウト', destroy_buyer_session_path, method: :delete, class: "user-tag" %></li> 
+                  <li><%= link_to 'マイページ', buyer_path(@current_buyer), class: "user-tag" %></li>
+                </ul>
+              </span>
+            </div>
+        <% else %>
+        <div class="user-list ">
+          <div class="user_nav grid-6 nav1">
+            <span class="list-tag">出品者用アカウント
+              <ul class="user__info">
+                <li><%= link_to '出品者としてログイン', new_seller_session_path, class: "user-tag" %></li>
+                <li><%= link_to '出品者として新規登録', new_seller_registration_path, class: "user-tag" %></li>
+              </ul>
+            </span>
+          </div>
+          <div class="user_nav grid-6 nav2">
+            <span class="list-tag ">購入者用アカウント
+              <ul class="user__info">
+                <li><%= link_to '購入者としてログイン', new_buyer_session_path, class: "user-tag" %></li>
+                <li><%= link_to '購入者として新規登録', new_buyer_registration_path, class: "user-tag" %></li>
+              </ul>
+            </span>
+          </div>
+        </div>
+        <% end %>
+      <%# </ul> %>
+    </div>
+  </div>
+</header>
