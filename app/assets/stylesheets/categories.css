@@ -4,8 +4,8 @@
   font-weight: bold;
   color: #000000;/*文字色*/
   padding: 0.2em 0;/*上下の余白*/
-  border-top: solid 3px #a85790;/*上線*/
-  border-bottom: solid 3px #a85790;/*下線*/
+  border-top: solid 3px #83a4bb;/*上線*/
+  border-bottom: solid 3px #83a4bb;/*下線*/
   margin-bottom: 50px;
 }
 
@@ -34,8 +34,9 @@
 
 .item-lists>.list {
   width: 37vh;
-  padding: 1vw;
   background-color: #FFF;
+  border: solid 1px rgb(145, 145, 145);
+  margin: 10px;
 }
 
 .list>a {
@@ -48,30 +49,21 @@
 }
 
 .item-img {
-  width: 33vh;
-  height: 33vh;
+  width: 37vh;
+  height: 37vh;
 }
-
-.sold-out {
-  position: absolute;
-  top: 40%;
-  width: 100%;
-  text-align: center;
-  background-color: crimson;
-  transform: skewY(-10deg);
-}
-
-.sold-out>span {
-  color: #FFF;
-  font-size: 45px;
-  font: bold;
-}
-
 
 .item-info {
   background-color: #FFF;
   color: black;
   padding: 1vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-user-name {
+  color: #4e4e4e;
+  font-size: 15px;
 }
 
 .item-name {
@@ -95,10 +87,14 @@
 }
 
 .item-link {
-  font-size: 30px;
+  font-size: 15px;
   font-weight: bold;
   text-decoration: none;
   color: rgb(71, 71, 71);
   margin-top: 50px;
+}
+
+.item-link:hover {
+  color: rgb(96, 134, 216);
 }
 

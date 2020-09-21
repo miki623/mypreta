@@ -1,21 +1,127 @@
-<div class="container">
-    <% if current_seller || current_buyer %>
-      <%= form_with model: @comment, url:"/items/#{@item.id}/deals/#{@deal.id}/comments",local: true do |f| %>
-        <%= f.file_field :image, id:"item-image" %>
-        <%= f.text_area :text, placeholder: "コメントする", rows: "2" %>
-        <%= f.submit "SEND" %>
-      <% end %>
-    <% end %>
+<%= render partial: "items/header" %>
+
+
+<div class="item-content">
+  <p>購入商品</p>
+  <p><%= @item.overview %></p>
+  <div class="chat-item-img">
+    <%= image_tag @item.image, class: "comment-item-img" %>
+  </div>
+  <div class="chat-item-info">
+    <p>商品の説明</p>
+    <%= @item.info %>
+  </div>
+  <div class="chat-item-content">
+    <div class="chat-item-name">
+      <%= @item.seller.nickname %>
+    </div>
+    <div class="chat-item-schedule">
+      <%= @item.seller.schedule %>
+    </div>
+  </div>
 </div>
 
+<%# 購入者情報ー出品者にのみ表示 %>
+<% if current_seller == @deal.seller %>
+  <div class="buyer-info-contents">
+    <div class="buyer-info-inner">
+      <p>購入者情報を表示</p>
+      <ul class="buyer-info-lists">
+        <li>購入者氏名：<%= @deal.buyer.nickname %></li>
+        <li>郵便番号：<%= @transaction.postal_code %></li>
+        <li>都道府県：<%= @transaction.shipping_area.name %></li>
+        <li>市町村名：<%= @transaction.city %></li>
+        <li>番地：<%= @transaction.house_number %></li>
+        <li>建物名：<%= @transaction.building_name %></li>
+        <li>電話番号：<%= @transaction.phone_number %></li>
+      </ul>
+    </div>
+  </div>
+<%end%>
+<%# 購入者情報ー出品者にのみ表示 %>
+
 <div class="comments">
-      <h4>＜コメント一覧＞</h4>
-      <% if @comments %>
-        <% @comments.each do |comment| %>
-          <p>
-            <%= comment.text %>
-          <%= image_tag comment.image, class: "comment-image" if comment.image.attached? %>
-          </p>
+      <h4>チャット一覧</h4>
+      <p class="comment-info">※気になる事や、オーダーの詳細などを<br>出品者に質問してみましょう。</p>
+      <div class="comment-inner">
+        <% if seller_signed_in? %>
+          <% @comments.each do |comment| %>
+            <% if comment.seller_id.present? %>
+              <div class="comment-right">
+                <p class="comment-nickname">
+                  <%= comment.seller.nickname %>
+                </p>
+                <div class="chat-text-right">
+                  <p class="chat-comment-right">
+                    <%= comment.text %>
+                  </p>
+                </div>
+                <span>
+                  <%= image_tag comment.image.variant(resize:'350x350'), class: "comment-image" if comment.image.attached? %>
+                </span>
+              </div>
+            <% else %>
+              <div class="comment-left">
+                <p class="comment-nickname">
+                  <%= comment.buyer.nickname %>
+                </p>
+                <div class="chat-text-left">
+                  <p class="chat-comment-left">
+                    <%= comment.text %>
+                  </p>
+                </div>
+                <p>
+                  <%= image_tag comment.image.variant(resize:'350x350'), class: "comment-image" if comment.image.attached? %>
+                </p>
+              </div>
+            <% end %>
+          <% end %>
+        <%elsif buyer_signed_in?%>
+          <% @comments.each do |comment| %>
+            <% if comment.buyer_id.present? %>
+              <div class="comment-right">
+                <p class="comment-nickname">
+                  <%= comment.buyer.nickname %>
+                </p>
+                <div class="chat-text-right">
+                  <p class="chat-comment-right">
+                    <%= comment.text %>
+                  </p>
+                </div>
+                <p>
+                  <%= image_tag comment.image.variant(resize:'350x350'), class: "comment-image" if comment.image.attached? %>
+                </p>
+              </div>
+            <% else %>
+              <div class="comment-left">
+                <p class="comment-nickname">
+                  <%= comment.seller.nickname %>
+                </p>
+                <div class="chat-text-left">
+                  <p class="chat-comment-left">
+                    <%= comment.text %>
+                  </p>
+                </div>
+                <p>
+                  <%= image_tag comment.image.variant(resize:'350x350'), class: "comment-image" if comment.image.attached? %>
+                </p>
+              </div>
+            <% end %>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
 </div>
+  <div class="container">
+        <%= form_with model: @comment, url:"/items/#{@item.id}/deals/#{@deal.id}/comments",local: true do |f| %>
+          <div class="image-input">
+            <%= f.file_field :image, class:"item-image", id:"item-image" %>
+          </div>
+            <div id="image-list"></div>
+          <div class="text-input">
+            <%= f.text_area :text, class:"item-text", placeholder: "コメントする（1500文字以内）", rows: "2" %>
+          </div>
+          <div class="input-btn">
+            <%= f.submit "SEND", class:"send-btn" %>
+          </div>
+        <% end %>
+  </div>

@@ -1,3 +1,5 @@
+<%= render partial: "items/header" %>
+
 <div class='item-contents'>
   <h2 class='category-title'><%= @category.name %></h2>
   
@@ -12,6 +14,7 @@
           <%= item.overview %>
         </div>
         <div class='item-info'>
+          <div class="item-user-name"><%= item.seller.nickname %></div>
           <div class='item-price'>
             <span><%= item.price %>円<br>(税込み)</span>
           </div>

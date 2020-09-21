@@ -1,8 +1,11 @@
+<%= render partial: "items/header" %>
+
 <div class="item-show">
   <div class="item-box">
     <h2 class="name">
       <%= @item.overview %>
     </h2>
+    <p>出品者：<%= @item.seller.nickname %></p>
     <div class='item-img-content'>
       <%= image_tag @item.image ,class:"item-box-img" %>
     </div>
@@ -15,15 +18,16 @@
       </span>
 
     <% if seller_signed_in? && (@item.seller_id == current_seller.id) %>
-      <%= link_to '商品の編集', edit_item_path(@item), method: :get, class: "item-red-btn" %>
+      <%= link_to '商品の編集', edit_item_path(@item), method: :get, class: "item--btn" %>
       <p class='or-text'>or</p>
-      <%= link_to '削除', confirmation_item_path(@item) , class:'item-destroy' %>
+      <%= link_to '削除', confirmation_item_path(@item) , class:'item--btn' %>
     <% elsif  %>
-      <%= link_to '購入画面に進む', item_transactions_path(@item,@transaction) ,class:"item-red-btn"%>
+      <%= link_to '購入画面に進む', item_transactions_path(@item,@transaction) ,class:"item--btn"%>
     <% end %>
 
 
       <div class="item-info-wrapper">
+          <p>商品の説明</p>
         <div class="item-info-content">
           <%= @item.info %>
         </div>

@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
 
+  before_action :set_user
 
   def index
     @items = Item.all
@@ -9,11 +10,6 @@ class ItemsController < ApplicationController
     @category3 = Category.find(3)
     @category4 = Category.find(4)
 
-    if seller_signed_in?
-      @seller = current_seller
-    elsif buyer_signed_in?
-      @buyer = current_buyer
-    end
 
   end
 
@@ -80,6 +76,14 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:image, :overview, :info, :category_id, :delivery_fee_id, :shipping_area_id, :price).merge(seller_id: current_seller.id)
+  end
+
+  def set_user
+    if seller_signed_in?
+      @seller = current_seller
+    elsif buyer_signed_in?
+      @buyer = current_buyer
+    end
   end
 
 end

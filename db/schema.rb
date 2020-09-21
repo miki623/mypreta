@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 2020_09_16_150240) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "deal_id", null: false
-    t.integer "seller_id", null: false
-    t.integer "buyer_id", null: false
+    t.integer "seller_id"
+    t.integer "buyer_id"
     t.text "text", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
