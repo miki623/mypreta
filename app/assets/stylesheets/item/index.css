@@ -212,4 +212,6 @@ body {
   text-decoration: none;
 }
 
-
+.breadcrumbs a:hover {
+  color: rgb(126, 126, 126);
+}
