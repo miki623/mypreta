@@ -26,8 +26,9 @@
 <% if current_seller == @deal.seller %>
   <div class="buyer-info-contents">
     <div class="buyer-info-inner">
-      <p>購入者情報を表示</p>
-      <ul class="buyer-info-lists">
+      <p id="delivery-preview">購入者情報を表示</p>
+      <span>※クリックすると購入者情報が表示されます</span>
+      <ul class="buyer-info-lists hidden", id="delivery-list">
         <li>購入者氏名：<%= @deal.buyer.nickname %></li>
         <li>郵便番号：<%= @transaction.postal_code %></li>
         <li>都道府県：<%= @transaction.shipping_area.name %></li>
