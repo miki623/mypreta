@@ -188,15 +188,21 @@
   margin: 20px auto;
 }
 
-.buyer-info-inner p:hover {
-  background-color: rgb(207, 207, 207);
-}
 
 .buyer-info-inner {
   margin: 0 auto;
-  width: 200px;
+  width: 250px;
+}
+
+.buyer-info-inner span {
+  font-size: 12px;
+  width: 100px;
 }
 
 .buyer-info-inner li {
   text-align: left;
+}
+
+.hidden {
+  display: none;
 }
