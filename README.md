@@ -8,6 +8,15 @@
 アパレルメーカーに勤めていた際に、副業で顧客をとりにくいと言っていた友人の悩みを聞き素敵なスキルを持っているのにもったいない！と思いました。
 「オリジナルの服を欲しい」人と、「服を作りたい」人を繋げたいと思い、作り手個人が登録できるアパレルコミュニティアプリケーションを作成しました。
 
+## 追加実装中の機能・課題
+* 追加実装
+    * 出品スキル検索機能
+    * トップページの人気商品スライド
+    * チャット機能をActionCableを使ったリアルタイムチャットへ変更
+    * カテゴリーを増やす
+* 課題
+    * リファクタリング
+
 
 ## sellers テーブル
 
@@ -85,14 +94,16 @@
 | Column      | Type       | Options                         |
 | ----------- | ---------- | ------------------------------- |
 | buyer       | references | null: false,  foreign_key: true |
+| seller      | references | null: false,  foreign_key: true |
 | item        | references | null: false,  foreign_key: true |
-
 
 ### Association
 
 - belongs_to :buyer
+- belongs_to :seller
 - belongs_to :item
 - has_one :transaction
+- has_many :comments
 
 
 
@@ -113,6 +124,23 @@
 
 - belongs_to :deal
 - belongs_to_active_hash :shipping_area
+
+
+## comments テーブル
+
+| Column              | Type       | Options                         |
+| ------------------- | ---------- | ------------------------------- |
+| seller_id           | string     | optional: true                  |
+| buyer_id            | string     | optional: true                  |
+| deal_id             | string     | null: false                     |
+| text                | text       | null: false                     |
+
+
+### Association
+- belongs_to :seller
+- belongs_to :buyer
+- belongs_to :deal
+- has_one_attached :image
 
 
 ## sns_credential_buyers テーブル
@@ -145,4 +173,3 @@
 - belongs_to :seller
 
 
-## chatsテーブル
