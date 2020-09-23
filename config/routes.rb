@@ -12,11 +12,14 @@ Rails.application.routes.draw do
     resources :transactions, only:[:index, :create]
   end
   resources :categories, only:[:show]
-  resources :sellers, only:[:show] do
-    member do
-      get 'history'
-    end
+
+  devise_scope :seller do
+    get 'sellers/:id', to: 'sellers#show', as: 'seller'
+    get '/sellers/:id/history', to: 'sellers#history', as: 'history_seller'
   end
-  resources :buyers, only:[:show]
+
+  devise_scope :buyer do
+    get 'buyers/:id', to: 'buyers#show', as: 'buyer'
+  end
   
 end
