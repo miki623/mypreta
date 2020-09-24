@@ -37,6 +37,7 @@
               <ul class="user__info">
                 <li><%= link_to '出品者としてログイン', new_seller_session_path, class: "user-tag" %></li>
                 <li><%= link_to '出品者として新規登録', new_seller_registration_path, class: "user-tag" %></li>
+                <li><%= link_to 'ゲストログイン(出品者)', sellers_guest_sign_in_path, method: :post, class: "user-tag" %></li>
               </ul>
             </span>
           </div>
@@ -45,6 +46,7 @@
               <ul class="user__info">
                 <li><%= link_to '購入者としてログイン', new_buyer_session_path, class: "user-tag" %></li>
                 <li><%= link_to '購入者として新規登録', new_buyer_registration_path, class: "user-tag" %></li>
+                <li><%= link_to 'ゲストログイン(購入者)', buyers_guest_sign_in_path, method: :post, class: "user-tag" %></li>
               </ul>
             </span>
           </div>
