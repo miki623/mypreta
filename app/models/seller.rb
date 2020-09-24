@@ -7,6 +7,21 @@ class Seller < ApplicationRecord
   has_many :items
   has_many :deals
 
+  def self.guest
+    find_or_create_by!(email: 'seller_guest@example.com') do |seller|
+      seller.password = "guest11"
+      seller.nickname = "ゲストユーザー"
+      seller.first_name = "ゲスト"
+      seller.last_name = "ユーザー"
+      seller.first_name_kana = "ゲスト"
+      seller.last_name_kana = "ユーザー"
+      seller.birth_date = "1950-05-05"
+      seller.jender = "男"
+      seller.info = "アパレルデザイナー歴10年"
+      seller.schedule = "土日終日対応可"
+    end
+  end
+
   VALID_NAME_REGIX = /\A[ぁ-んァ-ン一-龥]/
   VALID_KANA_REGIX = /\A[ァ-ヶー－]+\z/
   VALID_PASS_REGIX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
