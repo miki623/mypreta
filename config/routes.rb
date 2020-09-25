@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     member do
       get 'confirmation'
     end
+    collection do
+      get 'search'
+    end
     resources :deals, only:[:show] do
       resources :comments, only:[:create]
     end

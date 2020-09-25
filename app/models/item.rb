@@ -10,6 +10,15 @@ class Item < ApplicationRecord
   has_many :deals
   has_many :buyers, through: :deals
 
+  def self.search(search)
+    if search != ""
+      Item.where('info LIKE(?)', "%#{search}%")
+      Item.where('overview LIKE(?)', "%#{search}%")
+    else
+      Item.all
+    end
+  end
+
   with_options presence: true do
     validates :image
     validates :overview, length: { maximum: 200}

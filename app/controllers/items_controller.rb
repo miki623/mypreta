@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
 
   before_action :set_user
+  before_action :set_item, only:[:show, :edit, :confirmation, :destroy]
+  before_action :search_item, only:[:index, :search, :show]
 
   def index
     @items = Item.all
@@ -9,8 +11,6 @@ class ItemsController < ApplicationController
     @category2 = Category.find(2)
     @category3 = Category.find(3)
     @category4 = Category.find(4)
-
-
   end
 
   def new
@@ -32,13 +32,11 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @seller = @item.seller
     @p = @item.price.to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse
   end
 
   def edit
-    @item = Item.find(params[:id])
     if @item.seller.id != current_seller.id
       redirect_to :show
     end
@@ -51,17 +49,14 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
-
   end
 
   def confirmation
-    @item = Item.find(params[:id])
     @seller = @item.seller
     @p = @item.price.to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse
   end
 
   def destroy
-    @item = Item.find(params[:id])
     @seller = @item.seller
     if @item.seller.id == current_seller.id
       @item.destroy
@@ -69,7 +64,10 @@ class ItemsController < ApplicationController
     else
       render :show
     end
+  end
 
+  def search
+    @results = @i.result.order("created_at DESC")
   end
 
   private
@@ -84,6 +82,14 @@ class ItemsController < ApplicationController
     elsif buyer_signed_in?
       @buyer = current_buyer
     end
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def search_item
+    @i = Item.ransack(params[:q])
   end
 
 end

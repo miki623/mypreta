@@ -105,6 +105,10 @@ body {
   height: 50px;
 }
 
+.purchase-btn-text:hover {
+  background-color: #98beda;
+}
+
 
 .introduction {
   width: 100vw;
@@ -191,6 +195,7 @@ body {
   margin: 10px auto;
 }
 
+
 .txt-contents {
   width: 80%;
   display: inline-block;
@@ -214,4 +219,26 @@ body {
 
 .breadcrumbs a:hover {
   color: rgb(126, 126, 126);
+}
+
+.search-input {
+  width: 200px;
+  height: 30px;
+  font-size: 18px;
+  border: solid 2px rgb(90, 90, 90);
+  border-radius: 5px;
+}
+
+.search-btn {
+  width: 80px;
+  height: 40px;
+  font-size: 19px;
+  border-radius: 10px;
+  border: solid 1px rgb(189, 189, 189);
+  background-color: #83a4bb;
+  color: white;
+}
+
+.search-btn:hover {
+  background-color:  #98beda;
 }
