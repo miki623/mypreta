@@ -1,0 +1,28 @@
+<% breadcrumb :item_search %>
+<%= render partial: "items/header" %>
+
+<div class='item-contents'>
+  <h2 class='category-title'>検索結果</h2>
+  
+  <ul class='item-lists'>
+    <% @results.each do |item| %>
+      <li class='list'>
+        <%= link_to item_path(item) do %>
+        <div class='item-img-content'>
+          <%= image_tag item.image, class: "item-img" %>
+        </div>
+        <div class="item-overview">
+          <%= item.overview %>
+        </div>
+        <div class='item-info'>
+          <div class="item-user-name"><%= item.seller.nickname %></div>
+          <div class='item-price'>
+            <span><%= item.price %>円<br>(税込み)</span>
+          </div>
+        </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+  <%= link_to "トップページに戻る", root_path, class:"item-link" %>
+</div>

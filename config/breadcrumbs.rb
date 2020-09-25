@@ -82,6 +82,11 @@ crumb :item_confirmation do
   parent :show_item
 end
 
+crumb :item_search do
+  link "検索結果", search_items_path
+  parent :root
+end
+
 
 # crumb :projects do
 #   link "Projects", projects_path

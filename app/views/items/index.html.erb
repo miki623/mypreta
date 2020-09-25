@@ -4,7 +4,10 @@
 <div class='nav'>
   <div class='sub-lists'>
     <div class='lists-left'>
-    検索機能（未実装）
+      <%= search_form_for @i, url: search_items_path, local: true, method: :get, class: "search-form" do |f| %>
+        <%= f.search_field :info_cont, placeholder: "スキルを検索する", class: "search-input" %>
+        <%= f.submit "検索", class: "search-btn" %>
+      <% end %>
     </div>
       <%= link_to new_item_path, class:"purchase-btn-text" do %>
         <div class='purchase-btn'>
