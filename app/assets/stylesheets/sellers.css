@@ -32,7 +32,7 @@
 }
 
 .seller-header-name h2 {
-  width: 100px;
+  width: 200px;
 }
 
 .seller-header-right {
@@ -110,6 +110,7 @@
 .seller-item-left {
   display: flex;
   flex-direction: column;
+  max-width: 50vw;
   margin: 8px;
 }
 
@@ -146,6 +147,8 @@
 
 .seller-item-img {
   height: 200px;
+  width: 200px;
+  object-fit: cover;
 }
 
 .item-info-wrapper {

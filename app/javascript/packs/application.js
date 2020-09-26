@@ -11,6 +11,7 @@ require("../card")
 require("../price")
 require("../preview")
 require("../delivery_preview")
+require("../slider")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
