@@ -19,11 +19,25 @@
 <div class="introduction">
   <h1 class="intro-text">MyPretaではあなただけの服が手に入ります</h1>
 </div>
-<div class="slide-wrapper">
-  <div class="slide-content">
-  人気商品のスライド
-  </div>
-</div>
+    <div class="swiper-text">
+      人気商品のスライド
+    </div>
+      <!-- Swiper START -->
+    <div class="swiper-container">
+      <!-- メイン表示部分 -->
+      <div class="swiper-wrapper">
+        <!-- 各スライド -->
+        <div class="swiper-slide"><%= image_tag Item.find(5).image %></div>
+        <div class="swiper-slide"><%= image_tag Item.find(6).image %></div>
+        <div class="swiper-slide"><%= image_tag Item.find(7).image %></div>
+        <div class="swiper-slide"><%= image_tag Item.find(8).image %></div>
+      </div>
+      <div class="swiper-pagination swiper-pagination-black"></div>
+      <div class="swiper-button-prev swiper-button-black"></div>
+      <div class="swiper-button-next swiper-button-black"></div>
+    </div>
+
+    <!-- Swiper END -->
 
   <div class="category-intro">
     <h2>カテゴリーリスト</h2>

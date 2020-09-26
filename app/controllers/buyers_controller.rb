@@ -6,8 +6,6 @@ class BuyersController < ApplicationController
 
   def show
     @deals = @buyer.deals.all.order("created_at DESC")
-    transactions = Transaction.joins(:deal)
-    @transaction = transactions.find(params[:id])
   end
 
   private
