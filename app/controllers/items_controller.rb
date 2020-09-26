@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
 
-  before_action :set_user
   before_action :set_item, only:[:show, :edit, :confirmation, :destroy]
   before_action :search_item, only:[:index, :search, :show]
 
@@ -74,14 +73,6 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:image, :overview, :info, :category_id, :delivery_fee_id, :shipping_area_id, :price).merge(seller_id: current_seller.id)
-  end
-
-  def set_user
-    if seller_signed_in?
-      @seller = current_seller
-    elsif buyer_signed_in?
-      @buyer = current_buyer
-    end
   end
 
   def set_item

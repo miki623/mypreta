@@ -1,7 +1,5 @@
 class DealsController < ApplicationController
 
-  before_action :set_user
-
   def show
     @item = Item.find(params[:item_id])
     @deal = Deal.find(params[:id])
@@ -16,14 +14,5 @@ class DealsController < ApplicationController
     end
   end
 
-  private
-
-  def set_user
-    if seller_signed_in?
-      @seller = current_seller
-    elsif buyer_signed_in?
-      @buyer = current_buyer
-    end
-  end
 
 end

@@ -263,8 +263,67 @@ body {
   color: #494949;
 }
 
-.swiper-button-prev,.swiper-container-rtl .swiper-button-next {
-background-image: url(“data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D’http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg’%20viewBox%3D’0%200%2027%2044’%3E%3Cpath%20d%3D’M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z’%20fill%3D’%23007aff’%2F%3E%3C%2Fsvg%3E”);
-left: 10px;
-right: auto;
+.footer-content {
+  height: 170px;
+  background-color: white;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.footer-content-left {
+  display: flex;
+  padding: 40px;
+  justify-content: space-evenly;
+}
+
+.footer-content-left ul{
+  padding: 0 60px;
+}
+
+.footer-content-left li a{
+  color: rgb(73, 73, 73);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.footer-badge {
+  display: flex;
+  justify-content: space-between;
+}
+
+.google-badge {
+  width: 155px;
+  height: 60px;
+  margin-top: 30px;
+}
+
+.apple-badge {
+  width: 135px;
+  height: 42px;
+  margin-top: 40px;
+  margin-left: 20px;
+}
+
+.footer-bottom-content {
+  height: 60px;
+  background-color: #4b4b4b;
+  display: flex;
+  align-items: center;
+}
+
+.footer-bottom-content ul {
+  display: flex;
+  float: left;
+  align-items: center;
+  padding-left: 30px;
+}
+
+.footer-bottom-content li {
+  padding: 0 20px;
+}
+
+.footer-bottom-content a {
+  color: #d8d8d8;
+  font-size: 12px;
+  text-decoration: none;
 }
