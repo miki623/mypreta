@@ -1,0 +1,39 @@
+ja:
+  activerecord:
+    attributes:
+      seller:
+        nickname: ニックネーム
+        first_name: 名前
+        last_name: 名字
+        first_name_kana: 名前(カタカナ)
+        last_name_kana: 名字(カタカナ)
+        birth_date: 生年月日
+        jender: 性別
+        info: 紹介文
+        schedule: スケジュール
+      buyer:
+        nickname: ニックネーム
+        first_name: 名前
+        last_name: 名字
+        first_name_kana: 名前(カタカナ)
+        last_name_kana: 名字(カタカナ)
+        birth_date: 生年月日
+        jender: 性別
+      item:
+        image: 画像
+        overview: 【商品の概要】
+        info: 【商品の説明】
+        price: 【販売価格】
+        category: 【商品カテゴリー】
+        delivery_fee: 【配送料の負担】
+        shipping_area: 【発送元の地域】
+  activemodel:
+    attributes:
+      deal_transaction:
+        postal_code: 【郵便番号】
+        shipping_area_id: 【都道府県】
+        city: 【市区町村】
+        house_number: 【番地】
+        phone_number: 【電話番号】
+        
+
