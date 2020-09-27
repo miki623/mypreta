@@ -43,6 +43,10 @@
   flex-direction: column;
 }
 
+.item-content {
+  max-width: 80vw;
+}
+
 .footer-link-content {
   text-decoration: none;
   color: black;
