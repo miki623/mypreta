@@ -113,7 +113,7 @@ body {
 
 .introduction {
   width: 100vw;
-  height: 600px;
+  height: 450px;
   /* background-color: black; */
   background-image: url("/images/intro.jpg");
   background-size: cover;
@@ -302,6 +302,10 @@ body {
   height: 42px;
   margin-top: 40px;
   margin-left: 20px;
+}
+
+.footer-content {
+  margin-top: 100px;
 }
 
 .footer-bottom-content {

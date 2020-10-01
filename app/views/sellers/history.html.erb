@@ -17,6 +17,7 @@
       <% @deals.each do |deal| %>
         <li class='seller-list'>
           <p class="seller-item-time">購入日時：<%= deal.created_at.to_s(:datetime_jp) %></p>
+          <p class="seller-item-nickname">購入者： <%= deal.buyer.nickname %></p>
           <%= link_to "購入者とチャット", item_deal_path(deal.item_id,deal),class:"seller-item-link" %>
           <div class="seller-item">
             <div class='seller-item-image'>

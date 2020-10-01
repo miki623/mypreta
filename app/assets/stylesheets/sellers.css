@@ -57,6 +57,11 @@
   color: rgb(97, 97, 97);
 }
 
+.seller-item-nickname {
+  color: rgb(58, 58, 58);
+  margin: 4px 0;
+}
+
 
 .seller-header-text {
   text-align: center;
@@ -76,7 +81,7 @@
 .seller-item {
   display: flex;
   border: solid 1px rgb(196, 196, 196);
-  height: 200px;
+  width: 60vw;
   margin: 30px 0;
   height: 200px;
 }

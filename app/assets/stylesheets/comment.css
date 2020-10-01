@@ -12,6 +12,7 @@
 .item-content {
   align-items: center;
   background-color: rgb(248, 249, 250);
+  margin: 0 auto;
 }
 
 .chat-item-info p {
