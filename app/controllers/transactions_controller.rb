@@ -18,7 +18,6 @@ class TransactionsController < ApplicationController
       @transaction.save
       @buyer = current_buyer
       redirect_to buyer_path(@buyer)
-
     else
       render :index
     end
