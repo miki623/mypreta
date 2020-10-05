@@ -53,6 +53,9 @@
                 <p class="comment-nickname">
                   <%= comment.seller.nickname %>
                 </p>
+                <p>
+                  <%= comment.created_at.to_s(:datetime_jp) %>
+                </p>
                 <div class="chat-text-right">
                   <p class="chat-comment-right">
                     <%= comment.text %>
@@ -67,6 +70,10 @@
                 <p class="comment-nickname">
                   <%= comment.buyer.nickname %>
                 </p>
+                <p>
+                  <%= comment.created_at.to_s(:datetime_jp) %>
+                </p>
+
                 <div class="chat-text-left">
                   <p class="chat-comment-left">
                     <%= comment.text %>
@@ -85,6 +92,9 @@
                 <p class="comment-nickname">
                   <%= comment.buyer.nickname %>
                 </p>
+                <p>
+                  <%= comment.created_at.to_s(:datetime_jp) %>
+                </p>
                 <div class="chat-text-right">
                   <p class="chat-comment-right">
                     <%= comment.text %>
@@ -98,6 +108,9 @@
               <div class="comment-left">
                 <p class="comment-nickname">
                   <%= comment.seller.nickname %>
+                </p>
+                <p>
+                  <%= comment.created_at.to_s(:datetime_jp) %>
                 </p>
                 <div class="chat-text-left">
                   <p class="chat-comment-left">
